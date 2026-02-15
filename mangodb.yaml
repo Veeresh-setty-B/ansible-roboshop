@@ -1,5 +1,5 @@
 - name: configure mongodb
-  hosts: mongodb-dev.veereshsetty.online
+  hosts: mongodb
   become: yes
 
   tasks:
@@ -8,7 +8,7 @@
         src: mongo.repo
         dest: /etc/yum.repos/mongo.repo
     - name: install mongodb server
-      ansible:builtin:dnf:
+      ansible.builtin.dnf:
         name: mongodb-org
         state: present
     - name: allow remote connections
